@@ -290,19 +290,37 @@
 # **kwargs = allows you to pass multiple keyword-arguments
 # *unpacking operator
 
-def add(*nums):
-  total = 0
-  for num in nums:
-    total = total + num
-  return total
+# def add(*nums):
+#   total = 0
+#   for num in nums:
+#     total = total + num
+#   return total
 
-print(add(1,2,3))
+# print(add(1,2,3))
 
-def print_address(**kwargs):
-  for key, value in kwargs.items():
-    print(f"{key}: {value}")
+# def print_address(**kwargs):
+#   for key, value in kwargs.items():
+#     print(f"{key}: {value}")
 
-print_address(street="123 Fake St.",
+# print_address(street="123 Fake St.",
+#       city="Inventedopolis",
+#       state="NA",
+#       zip="6969")
+
+def shipping_label(*args,**kwargs):
+  for arg in args:
+    print(arg, end=" ")
+  print()
+
+  print(f"{kwargs.get('street')}{f" {kwargs.get('apt')}" if "apt" in kwargs else ""}")
+  print(f"{kwargs.get('city')} {kwargs.get('state')}, {kwargs.get('zip')}")
+
+shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.",
+      city="Inventedopolis",
+      state="NA",
+      zip="6969")
+
+shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.", apt="#100",
       city="Inventedopolis",
       state="NA",
       zip="6969")
