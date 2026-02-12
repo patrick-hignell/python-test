@@ -1,2 +1,2 @@
 
-  print(f"score: {score}/{round}")
+def ast(): print("****************")
