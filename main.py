@@ -307,20 +307,114 @@
 #       state="NA",
 #       zip="6969")
 
-def shipping_label(*args,**kwargs):
-  for arg in args:
-    print(arg, end=" ")
-  print()
+# def shipping_label(*args,**kwargs):
+#   for arg in args:
+#     print(arg, end=" ")
+#   print()
 
-  print(f"{kwargs.get('street')}{f" {kwargs.get('apt')}" if "apt" in kwargs else ""}")
-  print(f"{kwargs.get('city')} {kwargs.get('state')}, {kwargs.get('zip')}")
+#   print(f"{kwargs.get('street')}{f" {kwargs.get('apt')}" if "apt" in kwargs else ""}")
+#   print(f"{kwargs.get('city')} {kwargs.get('state')}, {kwargs.get('zip')}")
 
-shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.",
-      city="Inventedopolis",
-      state="NA",
-      zip="6969")
+# shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.",
+#       city="Inventedopolis",
+#       state="NA",
+#       zip="6969")
 
-shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.", apt="#100",
-      city="Inventedopolis",
-      state="NA",
-      zip="6969")
+# shipping_label("Dr.", "Spongebob", "Squarepants", street="123 Fake St.", apt="#100",
+#       city="Inventedopolis",
+#       state="NA",
+#       zip="6969")
+
+# List comprehension
+# [expression for value in iterable if condition]
+
+# doubles = [x * 2 for x in range(1, 11)]
+# triples = [x * 3 for x in range(1, 11)]
+# squares = [x * x for x in range(1, 11)]
+
+# print(doubles)
+# print(triples)
+# print(squares)
+
+# fruits = ["apple", "orage", "banana", "coconut"]
+# fruits = [fruit.upper() for fruit in fruits]
+
+# print(fruits)
+
+# fruit_chars = [fruit[0] for fruit in fruits]
+
+# print(fruit_chars)
+
+# numbers = [1,-2,3,-4,5,-6]
+
+
+# pos_nums = [num for num in numbers if num >=0]
+
+# print(pos_nums)
+
+# num_string = ", ".join([str(num) for index, num in enumerate(numbers) if index < len(numbers) -1])
+# num_string += f"{" and " if len(numbers) > 1 else ""}{numbers[-1]}"
+
+# print(num_string)
+
+
+# switch statements-
+
+# def day_of_week(day):
+#   match day:
+#     case "1":
+#       return "Monday"
+#     case "2":
+#       return "Tuesday"
+#     case "3":
+#       return "Wednesday"
+#     case "4":
+#       return "Thursday"
+#     case "5":
+#       return "Friday"
+#     case "6":
+#       return "Saturday"
+#     case "7":
+#       return "Sunday"
+#     case _:
+#       return "Invalid Day"
+    
+# def is_weekend(day):
+#   match day:
+#     case "Saturday" | "Sunday":
+#       return True
+#     case "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday":
+#       return False
+#     case _:
+#       return False
+    
+# response = input("week day number: ")
+# print(day_of_week(response))
+# print("Have a good weekend!") if is_weekend(day_of_week(response)) else ""
+
+#modules
+
+# import math
+
+# print(math.pi)
+
+# import math as m
+
+# print(m.pi)
+
+# from math import pi
+
+# print(pi)
+
+# import module_example
+
+# module_example.i_like("bananas")
+
+# module_example.i_dont_like("pineapple")
+
+
+#scope respolution = (LEGB) Local -> Enclosed -> Global -> Built-in
+
+
+#if __name__ == '__main__':
+# main()
