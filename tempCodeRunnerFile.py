@@ -1,2 +1,2 @@
 
-def ast(): print("****************")
+print(hangman_art)
