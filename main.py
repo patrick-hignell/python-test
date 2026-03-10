@@ -418,3 +418,202 @@
 
 #if __name__ == '__main__':
 # main()
+
+#Python Object Orientated Programming-
+# class
+
+# class Car:
+#   def __init__(self, model, year, color, for_sale):
+#     self.model = model
+#     self.year = year
+#     self.color = color
+#     self.for_sale = for_sale
+
+#   def describe(self):
+#     print(f"A {self.year} {self.color} {self.model}. It is {"" if self.for_sale else "not "}for sale")
+
+#   def drive(self):
+#     print(f"You drive the {self.color} {self.model}")
+  
+#   def stop(self):
+#     print(f"You stop the {self.color} {self.model}")
+
+# car1 = Car("Toyota Corolla", 2003,"silver",False)
+
+# car1.describe()
+
+# car1.drive()
+
+# car1.stop()
+
+
+#class variables
+#class variables vs instance variables- all instances of a class share class variables. Each instance has different instance variables.
+#class variables are defined outside of the constructor (no self)
+
+# class Student:
+
+#   class_year = 2024
+#   num_students = 0
+  
+#   def __init__(self,name,age):
+#     self.name = name
+#     self.age = age
+#     Student.num_students += 1
+
+
+
+# student1 = Student("Spongebob",30)
+
+# student2 = Student("Patrick",35)
+
+# print(student1.name)
+# print(student1.class_year)
+# print(Student.class_year) #preferrable to get class variables from the class itself to make it explicit that it is a class variable
+
+# print(student1.num_students) #will be the same
+# print(Student.num_students)
+
+
+#Inheritance
+
+# class Animal:
+#   def __init__(self, name):
+#     self.name = name
+#     self.is_alive = True
+  
+#   def eat(self):
+#     print(f"{self.name} is eating")
+
+#   def sleep(self):
+#     print(f"{self.name} is sleeping")
+
+# class Dog(Animal):
+#   def speak(self):
+#     print("Woof!")
+
+# class Cat(Animal):
+#  def speak(self):
+#     print("Meow!")
+
+# class Mouse(Animal):
+#   def speak(self):
+#     print("Squeak!")
+
+# dog = Dog("Scooby")
+# cat = Cat("Garfield")
+# mouse = Mouse("Mickey")
+
+# print(dog.name)
+
+# dog.sleep()
+
+# dog.speak()
+
+
+# multiple inheritance = inherit from more than one parent- C(A,B)
+# multilevel inheritance = inherit from a parent which inherits from anothe rparent C(B) <- B(A) <- A
+
+# class Animal:
+
+#   def __init__(self,name):
+#     self.name = name
+
+#   def eat(self):
+#     print(f"{self.name} is eating")
+  
+#   def sleep(self):
+#     print(f"{self.name} is sleeping")
+
+# class Prey(Animal):
+#   def flee(self):
+#     print(f"{self.name} is fleeing")
+
+# class Predator(Animal):
+#   def hunt(self):
+#     print(f"{self.name} is hunting")
+
+# class Rabbit(Prey):
+#   pass
+
+# class Hawk(Predator):
+#   pass
+
+# class Fish(Prey, Predator):
+#   pass
+
+# hawk = Hawk("Tony")
+
+# hawk.hunt()
+
+# hawk.eat()
+
+
+#super()- function used in a child class to call methods from a parent class (superclass)
+# import math
+# class Shape:
+#   def __init__(self, color, is_filled):
+#     self.color = color
+#     self.is_filled = is_filled
+
+#   def describe(self):
+#     print(f"It is {self.color} and {"filled" if self.is_filled else "not filled"}")
+
+# class Circle(Shape):
+#   def __init__(self, color, is_filled, radius):
+#     super().__init__(color,is_filled)
+#     self.radius = radius
+
+#   def describe(self):
+#     print(f"It is a circle with an area of {math.pi * self.radius * self.radius:.2f}cm^2")
+#     super().describe()
+# class Square(Shape):
+#   def __init__(self, color, is_filled, width):
+#     super().__init__(color,is_filled)
+#     self.width = width
+
+# class Triangle(Shape):
+#   def __init__(self, color, is_filled, width, height):
+#     super().__init__(color, is_filled)
+#     self.width = width
+#     self.height = height
+
+# circle = Circle("red",True,5)
+
+# print(circle.color)
+# circle.describe()
+
+# abstract methods- a method declared in an abstract base class (ABC) that has no implementation. Allows for polymorphism
+# It acts as a blueprint, enforcing a specific interface that all non-abstract subclasses must implement, or an error will be raised upon instantiation. 
+# requries importing-
+
+# from abc import ABC, abstractmethod
+
+
+# duck typing- achieves polymorphism without inheritance. so long as it has the same methods, can be treated the same in for loops etc.
+# if it quacks like a duck....
+
+
+#static methods- a method that belongs to a class rather than any object from that class- uses decorator @staticmethod
+
+class Employee:
+  def __init__(self, name, position):
+    self.name = name
+    self.position = position
+
+  def get_info(self):
+    return f"{self.name} = {self.position}"
+  
+  @staticmethod
+  def is_valid_position(position):
+    valid_positions = ["Manager", "Cashier", "Cook", "Janitor"]
+    return position in valid_positions
+
+employee1 = Employee("Spongebob", "Cook")
+employee2 = Employee("Sandy", "Rocket Scientist")
+
+print(employee1.get_info())
+print(Employee.is_valid_position(employee1.position))
+
+print(employee2.get_info())
+print(Employee.is_valid_position(employee2.position))

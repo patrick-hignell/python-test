@@ -60,8 +60,7 @@ word_list = ("art","basin","writing","representative","feeling","spark","seat","
 
 def hangman():
   random_word = random.choice(word_list)
-  hidden_word = ["_" for c in random_word]
-  hidden_word = "".join(hidden_word)
+  hidden_word = "_" * len(random_word)
   guessed_letters = list()
   # print(random_word)
   stage = 0
